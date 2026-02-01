@@ -85,7 +85,8 @@ A key feature of this project is the **Separation of Concerns**. [cite: 2026-02-
 ├── src/                    # Core Business Logic (PySpark & Python)
 │   ├── coingecko_ingestion.py
 │   ├── vault_loader.py
-│   └── crypto_spark_pipeline.py
+│   ├── crypto_spark_pipeline.py
+│   └── transform_crypto_data.py
 ├── data/                   # Local Bronze/Silver storage
 ├── docs/images/            # Architecture diagrams and screenshots
 ├── docker-compose.yaml     # Infrastructure as Code
