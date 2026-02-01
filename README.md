@@ -50,7 +50,17 @@ The project was managed using Agile methodology, broken down into 6 key Epics.
 *Figure 3: Airflow DAG orchestrating ephemeral Dataproc clusters.*
 
 * **Ephemeral Compute:** The pipeline dynamically creates a Dataproc cluster, submits the Spark job, and deletes the cluster upon completion to optimize costs.
-* **Data Warehouse:** Final optimized datasets are loaded into **BigQuery** for downstream analytics.
+
+* **Reliability & Fault Tolerance:** The system is designed to handle temporary cloud glitches. As shown in the job history, the pipeline automatically manages retries to ensure data consistency.
+
+* **Data Warehouse:**  Final optimized datasets are loaded into **BigQuery** for downstream analytics, following the Data Vault 2.0 structure.
+
+#### Cloud Execution Proof:
+
+| Dataproc Job History | BigQuery Gold Layer |
+| :--- | :--- |
+| ![Dataproc Jobs](./docs/images/gcp_dataproc_jobs.png) | ![BigQuery Results](./docs/images/gcp_bigquery_results.png) |
+| *Successful PySpark executions* | *Final processed crypto data* |
 
 ### 6. Visualization & Reporting
 * Created optimized SQL Views in BigQuery.
