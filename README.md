@@ -82,11 +82,15 @@ A key feature of this project is the **Separation of Concerns**. [cite: 2026-02-
 ├── airflow/                # Airflow Environment
 │   ├── dags/               # DAG definitions (Orchestration only)
 │   └── logs/               # Execution logs
-├── src/                    # Core Business Logic (PySpark & Python)
-│   ├── coingecko_ingestion.py
-│   ├── vault_loader.py
-│   ├── crypto_spark_pipeline.py
-│   └── transform_crypto_data.py
+├── src/                    # Core Business Logic (PySpark & Python)                        
+│   ├── coingecko_ingestion.py    # Main: Raw data extraction from API [cite: 2026-02-01]
+│   ├── transform_crypto_data.py  # Main: Spark-based cleaning & Silver layer logic [cite: 2026-02-01]
+│   ├── vault_loader.py           # Main: Data Vault 2.0 Gold layer loading [cite: 2026-02-01]
+│   ├── crypto_spark_pipeline.py  # Main: Spark session & pipeline orchestration [cite: 2026-02-01]
+│   │
+│   ├── silver_layer_setup.py     # Setup: Pre-creating BigQuery tables & schemas [cite: 2026-02-01]
+│   ├── test_gcp_connection.py    # Test: Validating GCP service account & connectivity [cite: 2026-02-01]
+│   └── crypto_dv_dag.py          # Test: Local Airflow DAG for development [cite: 2026-02-01]
 ├── data/                   # Local Bronze/Silver storage
 ├── docs/images/            # Architecture diagrams and screenshots
 ├── docker-compose.yaml     # Infrastructure as Code
@@ -96,3 +100,12 @@ A key feature of this project is the **Separation of Concerns**. [cite: 2026-02-
 
 
 🔒 Security Note: The gcp-key.json file shown in the structure is used for local authentication to Google Cloud services. This file is excluded from version control via .gitignore for security reasons. Users should provide their own Service Account key to run the pipeline.
+
+---
+
+### 🛠️ Development & Connectivity Tools
+The stability and ease of development are supported by the following specialized scripts:
+
+* **Connection Validation:** `test_gcp_connection.py` allows for verifying Google Cloud authentication and permissions before running the full pipeline.
+* **Schema Initialization:** `silver_layer_setup.py` automates the preparation of the BigQuery environment, following "Infrastructure as Code" principles.
+* **Local Testing:** `crypto_dv_dag.py` enables local validation of Airflow DAG logic, minimizing cloud-side execution errors.
