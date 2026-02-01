@@ -27,7 +27,7 @@ The system follows a multi-layer data architecture (Medallion Architecture) and 
 The project was managed using Agile methodology, broken down into 6 key Epics.
 
 ![Jira Project Board](./docs/images/jira_board.png)
-*Figure 2: Project management and task tracking in Jira.*
+*Figure 2: Final state of CDP Sprint 1, showing all User Stories completed.*
 
 ### 1. Infrastructure Setup
 * Deployed a containerized Airflow environment on Ubuntu.
