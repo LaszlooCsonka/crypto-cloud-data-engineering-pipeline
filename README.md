@@ -62,10 +62,16 @@ The project was managed using Agile methodology, broken down into 6 key Epics.
 | ![Dataproc Jobs](./docs/images/gcp_dataproc_jobs.png) | ![BigQuery Results](./docs/images/gcp_bigquery_results.png) |
 | *Successful PySpark executions* | *Final processed crypto data* |
 
-### 6. Visualization & Reporting
-* Created optimized SQL Views in BigQuery.
-* Designed an interactive **Power BI** dashboard to track price trends and volatility.
+### 📊 6. Data Visualization (Power BI)
+The final layer of the platform is an interactive Power BI dashboard that provides real-time insights into the processed cryptocurrency market data.
 
+![Power BI Dashboard](./docs/images/powerbi_dashboard.png)
+*Figure 4: Interactive dashboard displaying market trends, price volatility, and historical analysis.*
+
+**Key Features:**
+* **Real-time Price Tracking:** Connected directly to the BigQuery Gold layer for up-to-date market prices.
+* **Trend Analysis:** Visualizing price movements and volume changes over time using Spark-processed historical data.
+* **Data Vault Integrity:** The dashboard reflects the auditability and consistency of the underlying Data Vault 2.0 architecture.
 ---
 
 ## 📂 Project Structure
