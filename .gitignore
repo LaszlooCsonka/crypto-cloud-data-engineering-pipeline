@@ -1,0 +1,16 @@
+# Google Cloud Platform Key (NEVER upload this file!)
+# Using relative path for extra safety
+airflow/gcp-key.json
+gcp-key.json
+
+# Airflow logs and temporary files
+airflow/logs/
+airflow/plugins/
+__pycache__/
+*.pyc
+
+# Local Data Storage
+data/
+
+# Environment variables and secrets
+.env
